@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climate Action A-Z Dictionary | Academic Exhibition Projects</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-main: #111111;
+            --text-muted: #666666;
+            --border-color: #e2e2e2;
+            --accent-color: #1b5e20;
+            --highlight-bg: #f9f9f9;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Top Navigation/Header Line */
+        header {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1.5rem;
+            margin-bottom: 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .logo-text {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-weight: 700;
+        }
+
+        .status-text {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Professional Introduction Section */
+        .intro-section {
+            margin-bottom: 6rem;
+            max-width: 800px;
+        }
+
+        .intro-section pre {
+            font-family: monospace;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+        }
+
+        .intro-section h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            margin-bottom: 2rem;
+        }
+
+        .intro-section p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            border-left: 2px solid var(--text-main);
+            padding-left: 0.75rem;
+        }
+
+        /* Pricing Grid */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 5rem;
+        }
+
+        .card {
+            border: 1px solid var(--border-color);
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            background: #ffffff;
+        }
+
+        .card.featured {
+            border: 2px solid var(--text-main);
+        }
+
+        .featured-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            background: var(--text-main);
+            color: #ffffff;
+            display: inline-block;
+            padding: 0.15rem 0.5rem;
+            margin-bottom: 1rem;
+            align-self: flex-start;
+        }
+
+        .card-tier {
+            font-family: monospace;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-title {
+            font-size: 1.35rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-price {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .card-price span {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+
+        /* Lists */
+        .feature-list, .exclusion-list {
+            list-style: none;
+        }
+
+        .feature-list {
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+
+        .feature-list li {
+            font-size: 0.95rem;
+            margin-bottom: 0.6rem;
+            color: var(--text-main);
+            padding-left: 1.25rem;
+            position: relative;
+        }
+
+        .feature-list li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: var(--text-muted);
+        }
+
+        .exclusion-list {
+            border-top: 1px dotted var(--border-color);
+            padding-top: 1.5rem;
+        }
+
+        .exclusion-list li {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            padding-left: 1.25rem;
+            position: relative;
+        }
+
+        .exclusion-list li::before {
+            content: "✕";
+            position: absolute;
+            left: 0;
+            font-size: 0.75rem;
+        }
+
+        /* JavaScript Calculator Section */
+        .calculator-section {
+            border: 1px solid var(--text-main);
+            padding: 3rem;
+            margin-bottom: 5rem;
+        }
+
+        .calc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr auto;
+            gap: 2rem;
+            align-items: flex-end;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-group label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .input-group input, .input-group select {
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            font-size: 1rem;
+            background: #ffffff;
+            font-family: inherit;
+            outline: none;
+        }
+
+        .input-group input:focus, .input-group select:focus {
+            border-color: var(--text-main);
+        }
+
+        .calc-result {
+            padding-left: 2rem;
+            border-left: 1px solid var(--border-color);
+            min-width: 200px;
+        }
+
+        .calc-result p {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+        }
+
+        .calc-result .total-display {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        /* Meta Information Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            background: var(--highlight-bg);
+            padding: 3rem;
+            margin-bottom: 5rem;
+        }
+
+        .info-item h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-item p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Footer Call to Action */
+        footer {
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            padding-top: 4rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--text-main);
+            color: var(--bg-color);
+            text-decoration: none;
+            padding: 1rem 3rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            transition: background 0.2s ease;
+        }
+
+        .btn:hover {
+            background: #333333;
+        }
+
+        /* Responsive Layout adjustments */
+        @media (max-width: 768px) {
+            body { padding: 3rem 1.5rem; }
+            .intro-section h1 { font-size: 2.2rem; }
+            .calc-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+            .calc-result { padding-left: 0; border-left: none; border-top: 1px solid var(--border-color); padding-top: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Minimal Top Bar -->
+        <header>
+            <div class="logo-text">Studio / Academic Design</div>
+            <div class="status-text">Portfolio Year 2026</div>
+        </header>
+
+        <!-- Professional Intro Section -->
+        <section class="intro-section">
+            <pre>DESIGN BRIEF // ENVIRONMENT &amp; ECOLOGY</pre>
+            <h1>Bespoke Curation for the Climate Action A–Z Dictionary Project.</h1>
+            <p>
+                We provision comprehensive, high-tier educational project compilation services. Specialized in academic competitions, school presentations, and science exhibitions, our work integrates meticulous technical layout planning with artistic scientific modeling to maximize evaluation potential.
+            </p>
+        </section>
+
+        <!-- Pricing Tiers Header -->
+        <div class="section-title">Execution Tier Architecture</div>
+
+        <!-- Pricing Grid -->
+        <div class="pricing-grid">
+            
+            <!-- Tier 1 -->
+            <div class="card">
+                <div class="card-tier">DESIGN SPECIFICATION 01</div>
+                <div class="card-title">Basic Printed Edition</div>
+                <div class="card-price">₹70 <span>/ Page</span></div>
+                <ul class="feature-list">
+                    <li>Premium Color Print rendering</li>
+                    <li>High-density structured pages</li>
+                    <li>AI Assisted layout alignment</li>
+                    <li>Digitally processed text layouts</li>
+                    <li>High-resolution image positioning</li>
+                    <li>Standard front layout cover design</li>
+                </ul>
+                <ul class="exclusion-list">
+                    <li>No manual calligraphic work</li>
+                    <li>No multilayered spatial dimensional work</li>
+                </ul>
+            </div>
+
+            <!-- Tier 2 -->
+            <div class="card">
+                <div class="card-tier">DESIGN SPECIFICATION 02</div>
+                <div class="card-title">Handmade 2D Edition</div>
+                <div class="card-price">₹100 <span>/ Page</span></div>
+                <ul class="feature-list">
+                    <li>Artisan-crafted manual pages</li>
+                    <li>Precision handwritten transcription</li>
+                    <li>Individually pasted high-resolution graphics</li>
+                    <li>Creative structural layout scheme</li>
+                    <li>Handcrafted tailored exterior cover</li>
+                    <li>Refined corner and surface finishing</li>
+                </ul>
+                <ul class="exclusion-list">
+                    <li>No multi-layered dimensional elements</li>
+                </ul>
+            </div>
+
+            <!-- Tier 3 -->
+            <div class="card featured">
+                <div class="featured-label">Recommended for Competitions</div>
+                <div class="card-tier">DESIGN SPECIFICATION 03</div>
+                <div class="card-title">Premium 3D Edition</div>
+                <div class="card-price">₹135 <span>/ Page</span></div>
+                <ul class="feature-list">
+                    <li>Exclusively calligraphic / handwritten</li>
+                    <li>Ultra-premium precision edge finishing</li>
+                    <li>Advanced multi-tiered 3D structural layers</li>
+                    <li>Hybrid digital print &amp; artisanal material execution</li>
+                    <li>Standardized scientific indexing &amp; notation</li>
+                    <li>Layered geometric cross-section diagrams</li>
+                    <li>Comprehensive encyclopedia system design</li>
+                    <li>National-level competitive engineering layout</li>
+                    <li>Exhibition grade exterior hard casing included</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- JavaScript Live Cost Tool -->
+        <div class="section-title">Interactive Budget Estimation</div>
+        <section class="calculator-section">
+            <div class="calc-grid">
+                <div class="input-group">
+                    <label for="tier-select">Select Project Tier</label>
+                    <select id="tier-select">
+                        <option value="70">Basic Printed Edition (₹70/Page)</option>
+                        <option value="100">Handmade 2D Edition (₹100/Page)</option>
+                        <option value="135" selected>Premium 3D Edition (₹135/Page)</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="page-input">Volume Total (Pages)</label>
+                    <input type="number" id="page-input" min="1" value="15" placeholder="Enter number of pages">
+                </div>
+                <div class="calc-result">
+                    <p>Estimated Cost</p>
+                    <div class="total-display" id="total-display">₹2025</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Terms and Information -->
+        <div class="section-title">Operational Guidelines</div>
+        <section class="info-grid">
+            <div class="info-item">
+                <h3>Material Inclusions</h3>
+                <p>All structural components, core base media, and presentation boards are accounted for in the per-page calculation matrix.</p>
+            </div>
+            <div class="info-item">
+                <h3>Custom Theme Protocols</h3>
+                <p>Layout aesthetics are highly adaptable to align precisely with specific geographic or topic sub-genres provided in user briefs.</p>
+            </div>
+            <div class="info-item">
+                <h3>Exhibition Suitability</h3>
+                <p>Higher tier specs fulfill standard technical compliance models for evaluation boards across premium academic exhibitions.</p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <a href="mailto:booking@studio.com" class="btn">Initiate Consultation Brief</a>
+        </footer>
+
+    </div>
+
+    <!-- JavaScript Execution Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tierSelect = document.getElementById('tier-select');
+            const pageInput = document.getElementById('page-input');
+            const totalDisplay = document.getElementById('total-display');
+
+            function updateEstimation() {
+                const rate = parseInt(tierSelect.value, 10) || 0;
+                const totalPages = parseInt(pageInput.value, 10) || 0;
+                
+                // Keep the value safely positive
+                const validatedPages = totalPages < 0 ? 0 : totalPages;
+                
+                const finalCost = rate * validatedPages;
+                totalDisplay.textContent = '₹' + finalCost;
+            }
+
+            tierSelect.addEventListener('change', updateEstimation);
+            pageInput.addEventListener('input', updateEstimation);
+        });
+    </script>
+
+</body>
+</html>
